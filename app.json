@@ -7,10 +7,6 @@
       "android",
       "ios"
     ],
-    "jsEngine": "hermes",
-    "android": {
-      "package": "com.anonymous.habittracker"
-    },
     "extra": {
       "eas": {
         "projectId": "310736cd-26fc-48e1-826d-50480e4138e7"
