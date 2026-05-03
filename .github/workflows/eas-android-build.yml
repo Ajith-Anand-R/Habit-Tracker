@@ -53,10 +53,30 @@ jobs:
           if [ -n "$KEY_ALIAS" ]; then echo "EXPO_ANDROID_KEY_ALIAS=$KEY_ALIAS" >> $GITHUB_ENV; fi
           if [ -n "$KEY_PASSWORD" ]; then echo "EXPO_ANDROID_KEY_PASSWORD=$KEY_PASSWORD" >> $GITHUB_ENV; fi
 
+      - name: Write credentials.json
+        env:
+          KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
+          KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
+          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
+        run: |
+          cat > credentials.json <<EOF
+          {
+            "android": {
+              "keystore": {
+                "keystorePath": "android/app/habit.keystore",
+                "keystorePassword": "$KEYSTORE_PASSWORD",
+                "keyAlias": "$KEY_ALIAS",
+                "keyPassword": "$KEY_PASSWORD"
+              }
+            }
+          }
+          EOF
+
       - name: Run EAS Build (Android APK)
         id: eas_build
         env:
           EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+          # local signing credentials will be read from GITHUB_ENV variables set above
         run: |
           set -e
           echo "Starting EAS build (using local credentials)..."
