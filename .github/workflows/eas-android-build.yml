@@ -72,7 +72,7 @@ jobs:
           }
           EOF
 
-      - name: Run EAS Build (Android APK)
+      - name: Run EAS Build (Android Dev APK)
         id: eas_build
         env:
           EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
@@ -80,8 +80,8 @@ jobs:
           # local signing credentials will be read from GITHUB_ENV variables set above
         run: |
           set -e
-          echo "Starting EAS build (using local credentials)..."
-          eas build -p android --profile production --non-interactive --local --json > build.json
+          echo "Starting EAS development build (using local credentials)..."
+          eas build -p android --profile development --non-interactive --local --json > build.json
           echo "build.json contents:" && cat build.json
           APK_PATH=$(find "$EAS_LOCAL_BUILD_ARTIFACTS_DIR" -name '*.apk' -type f | head -n 1)
           if [ -z "$APK_PATH" ]; then
@@ -93,5 +93,5 @@ jobs:
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: habit-tracker-apk
+          name: habit-tracker-dev-apk
           path: ${{ env.APK_PATH }}
