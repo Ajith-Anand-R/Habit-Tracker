@@ -76,6 +76,7 @@ jobs:
         id: eas_build
         env:
           EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+          NODE_ENV: production
           # local signing credentials will be read from GITHUB_ENV variables set above
         run: |
           set -e
