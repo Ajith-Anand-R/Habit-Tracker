@@ -21,6 +21,6 @@
     "expo-sqlite": "^55.0.15",
     "react-native": "^0.85.2",
     "react-redux": "^9.2.0",
-    "react": "19.2.0"
+    "react": "^19.2.3"
   }
 }
