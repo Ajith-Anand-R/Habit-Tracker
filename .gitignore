@@ -2,3 +2,5 @@ node_modules
 HabitTrackerNative/
 android/local.properties
 *.keystore
+keystore-base64.txt
+credentials.json
