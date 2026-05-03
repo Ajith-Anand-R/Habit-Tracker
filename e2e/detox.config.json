@@ -1,0 +1,15 @@
+{
+  "testRunner": {
+    "runner": "jest",
+    "config": {
+      "preset": "react-native",
+      "setupFilesAfterEnv": ["<rootDir>/e2e/jest.setup.js"]
+    }
+  },
+  "testRunnerConfig": {
+    "config": {
+      "ci": false
+    }
+  },
+  "testEnvironment": "node"
+}

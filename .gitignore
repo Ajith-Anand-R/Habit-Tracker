@@ -1,0 +1,4 @@
+node_modules
+HabitTrackerNative/
+android/local.properties
+*.keystore

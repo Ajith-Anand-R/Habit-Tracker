@@ -1,0 +1,16 @@
+{
+  "expo": {
+    "name": "Habit Tracker",
+    "slug": "habit-tracker",
+    "version": "1.0.0",
+    "sdkVersion": "48.0.0",
+    "platforms": [
+      "android",
+      "ios"
+    ],
+    "jsEngine": "hermes",
+    "android": {
+      "package": "com.anonymous.habittracker"
+    }
+  }
+}
